@@ -29,7 +29,6 @@ mongoose.connect(
       console.log("Mongodb connected!");
     }
   );
-
 app.use('/', indexRouter)
 app.use('/chefs', chefRouter)
 app.use('/recipes', recipeRouter)
