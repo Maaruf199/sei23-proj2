@@ -9,15 +9,25 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "dependencies": {
+    "body-parser": "^1.19.0",
     "ejs": "^3.1.3",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
+    "method-override": "^3.0.0",
     "mongoose": "^5.9.25"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",
     "nodemon": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Maaruf199/sei23-proj2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Maaruf199/sei23-proj2/issues"
+  },
+  "homepage": "https://github.com/Maaruf199/sei23-proj2#readme",
+  "description": ""
 }
