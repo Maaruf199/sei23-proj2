@@ -1,0 +1,21 @@
+<h2 class="page-header"><%= recipe.title %></h2>
+<div class="recipe-details">
+  <div>
+    <img class="recipe-food" src="<%= recipe.foodImagePath %>">
+    <div class="recipe-details-btn-grid">
+      <a class="btn btn-primary" href="/recipes/<%= recipe.id %>/edit">Edit</a>
+      <%- include('../partials/deleteForm', { url: `/recipes/${recipe.id}` }) %>
+      <a class="btn btn-primary recipe-details-recipe-button" href="/recipes/<%= recipe.chef.id %>">View Chef</a>
+    </div>
+  </div>
+  <div class="recipe-details-grid">
+    <div class="recipe-details-label">Author:</div>
+    <div><%= recipe.chef.name %></div>
+    <div class="recipe-details-label">Publish Date:</div>
+    <div><%= recipe.publishDate.toDateString() %></div>
+    <div class="recipe-details-label">Ingredients:</div>
+    <div><%= recipe.ingredients %></div>
+    <div class="recipe-details-label">Directions:</div>
+    <div><%= recipe.directions %></div>
+  </div>
+</div>

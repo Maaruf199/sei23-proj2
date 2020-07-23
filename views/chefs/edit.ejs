@@ -1,8 +1,6 @@
-<h2 class="page-header">Edit Chef</h2>
+<h2>Edit Chef</h2>
 <form action="/chefs/<%= chef.id %>?_method=PUT" method="POST">
   <%- include('_form_fields') %>
-  <div class="form-row form-row-end btn-row">
-    <a class="btn btn-danger" href="/chefs/<%= chef.id %>">Cancel</a>
-    <button class="btn btn-primary" type="submit">Update</button>
-  </div>
+  <a href="/chefs/<%= chef.id %>">Cancel</a>
+  <button type="submit">Update</button>
 </form>

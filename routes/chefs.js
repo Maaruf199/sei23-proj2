@@ -85,7 +85,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   let chef
   try {
-    chef = await Chef.findById(req.params.id)
+    chef = await Chef.findByIdAndDelete(req.params.id)
     await chef.remove()
     res.redirect('/chefs')
   } catch {

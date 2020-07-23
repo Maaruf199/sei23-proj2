@@ -20,11 +20,11 @@ const recipeSchema = new mongoose.Schema({
     required: true,
     default: Date.now
   },
-  coverImage: {
+  foodImage: {
     type: Buffer,
     required: true
   },
-  coverImageType: {
+  foodImageType: {
     type: String,
     required: true
   },
@@ -35,9 +35,9 @@ const recipeSchema = new mongoose.Schema({
   }
 })
 
-recipeSchema.virtual('coverImagePath').get(function() {
-  if (this.coverImage != null && this.coverImageType != null) {
-    return `data:${this.coverImageType};charset=utf-8;base64,${this.coverImage.toString('base64')}`
+recipeSchema.virtual('foodImagePath').get(function() {
+  if (this.foodImage != null && this.foodImageType != null) {
+    return `data:${this.foodImageType};charset=utf-8;base64,${this.foodImage.toString('base64')}`
   }
 })
 

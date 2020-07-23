@@ -1,10 +1,12 @@
-<h2 class="page-header"><%= chef.name %></h2>
-<div class="btn-row">
-  <a class="btn btn-primary" href="/chefs/<%= chef.id %>/edit">Edit</a>
-  <%- include('../partials/deleteForm',
-              { url: `/chefs/${chef.id}` }) %>
-</div>
+<h2><%= chef.name %></h2>
+<a href="/chefs/<%= chef.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm',
+            { url: `/chefs/${chef.id}` }) %>
 <% if (recipesByChef.length > 0) { %>
-  <h2 class="page-header">Recipes By Chef</h2>
-  <%- include('../partials/recipeGrid', { recipes: recipesByChef }) %>
+  <h2>Recipes By Chef</h2>
+  <% recipesByChef.forEach(chef => { %>
+    <a href="/recipes/<%= recipe.id %>">
+      <img height="150" width="100" src="<%= recipe.foodImagePath %>">
+    </a>
+  <% }) %>
 <% } %>

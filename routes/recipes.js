@@ -8,7 +8,7 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 router.get('/', async (req, res) => {
   let query = Recipe.find()
   if (req.query.title != null && req.query.title != '') {
-    query = query.regex('title', new RegExp(req.query.title, 'i'))
+    query = query.regex('name', new RegExp(req.query.title, 'i'))
   }
   if (req.query.publishedBefore != null && req.query.publishedBefore != '') {
     query = query.lte('publishDate', req.query.publishedBefore)
@@ -85,7 +85,7 @@ router.put('/:id', async (req, res) => {
     recipe.ingredients = req.body.ingredients
     recipe.directions = req.body.directions
     if (req.body.food != null && req.body.food !== '') {
-      saveCover(recipe, req.body.food)
+      saveFood(recipe, req.body.food)
     }
     await recipe.save()
     res.redirect(`/recipes/${recipe.id}`)
@@ -102,7 +102,7 @@ router.put('/:id', async (req, res) => {
 router.delete('/:id', async (req, res) => {
   let recipe
   try {
-    recipe = await Recipe.findById(req.params.id)
+    recipe = await Recipe.findByIdAndDelete(req.params.id)
     await recipe.remove()
     res.redirect('/recipes')
   } catch {
