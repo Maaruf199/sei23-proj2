@@ -2,7 +2,7 @@ const router = require("express").Router();
 const User = require("../models/user.model");
 // const List = require("../models/list.model");
 
-router.get("/home", async (req, res) => {
+router.get("/", async (req, res) => {
     console.log("Req User", req.user);
     try {
       //get all lists
@@ -10,7 +10,7 @@ router.get("/home", async (req, res) => {
         .populate("lists");
   
       // console.log(restaurants);
-      res.render("/home", { lists });
+      res.render("/", { lists });
     } catch (error) {
       console.log(error);
     }

@@ -3,6 +3,10 @@ const passport = require("../config/passportConfig");
 // const isLoggedIn = require("../config/loginBlocker");
 const User = require("../models/user.model");
 
+router.get("/header", (req, res) => {
+  res.render("partials/header");
+});
+
 router.get("/signup", (req, res) => {
   res.render("auth/signup");
 });
@@ -39,7 +43,7 @@ router.get("/signin", (req, res) => {
 router.post(
   "/signin",
   passport.authenticate("local", {
-    successRedirect: "/home", //after login success
+    successRedirect: "/partials/header", //after login success
     failureRedirect: "/auth/signin", //if fail
     failureFlash: "Invalid Username or Password",
     successFlash: "You have logged In!"

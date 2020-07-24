@@ -7,8 +7,8 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'images/gif']
 // All Recipes Route
 router.get('/', async (req, res) => {
   let query = Recipe.find()
-  if (req.query.title != null && req.query.title != '') {
-    query = query.regex('name', new RegExp(req.query.title, 'i'))
+  if (req.query.name != null && req.query.name != '') {
+    query = query.regex('name', new RegExp(req.query.name, 'i'))
   }
   if (req.query.publishedBefore != null && req.query.publishedBefore != '') {
     query = query.lte('publishDate', req.query.publishedBefore)
@@ -155,3 +155,4 @@ function saveFood(recipe, foodEncoded) {
 }
 
 module.exports = router
+

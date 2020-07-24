@@ -71,6 +71,7 @@ app.use('/auth.route', authRouter)
 //   res.send("does not exist");
 // });
 
+app.use("/partials", require("./routes/auth.route"));
 app.use("/auth", require("./routes/auth.route"));
 app.use("/", isLoggedIn, require("./routes/user.route"));
 
